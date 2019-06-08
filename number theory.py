@@ -170,6 +170,14 @@ def multiply(P,Q):
     #poly[i] is the ith power term
     return(ifft(r))
     
+def inverse(a,b,p): #calculate x with ax equiv b mod prime p
+    inva=1; e=1
+    while e<p-1:
+        if e & (p-2):
+            inva=(inva*modexp(a,e,p))%p
+        e*=2
+    return((inva*b)%p)
+                
         
             
 """print(gcd(5**63+1,4**63))
@@ -184,6 +192,7 @@ print(p.dydx,p.degree)
 print(p.pprime(1))
 print(p.findroot())
 print(p.findvalue(50))
-print(integral(None,0,g))"""
-#print(ifft(fft([420,69,666,-69,-666,-420,888,8888])))
+print(integral(None,0,g))
+print(ifft(fft([420,69,666,-69,-666,-420,888,8888])))
 print(multiply([1,3,3,1],[1,3,3,1]))
+print(inverse(420,69,29))"""
